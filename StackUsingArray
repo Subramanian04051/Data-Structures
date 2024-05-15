@@ -1,0 +1,98 @@
+//Stack implementation using Arrays 
+class Stack
+
+{
+
+    //var a=[],top=0
+
+    constructor(n)
+
+    {
+
+        this.a=new Array(n)
+
+        this.top=0
+
+    }
+
+    push(a)
+
+    {
+
+        if(!this.isFull())
+
+        {
+
+        this.a[this.top]=a
+
+        this.top++    
+
+        }
+
+        else
+
+        {
+
+            console.log('stack full')
+
+        }
+
+    }
+
+    pop()
+
+    {
+
+        if(!this.isEmpty())
+
+        {
+
+       return this.a[this.top]
+
+        this.top--
+
+        }
+
+        else
+
+        {console.log('stack empty')
+
+        }
+
+    }
+
+     isFull()
+
+    {
+
+       // console.log(this.top)
+
+        //console.log(this.a.length-1)
+
+        return this.top==this.a.length
+
+    }
+
+     isEmpty()
+
+    {
+
+        return this.top==0
+
+    }
+
+}
+
+let obj=new Stack(10)
+
+obj.push(1)
+
+for(let i=0;i<10;i++)
+
+{
+
+    obj.push(i)
+
+}
+
+console.log(obj.a)
