@@ -22,7 +22,7 @@ class LinkList
             this.head=node
         else
         {
-            curr=this.head
+           let curr=this.head
             while(curr.next)
             {
                 curr=curr.next
@@ -49,6 +49,27 @@ class LinkList
            console.log('no element to print')
        }
     }
+    removeNode(index)
+    {
+        let curr=this.head,prev=curr,itrt=0
+        if(index==0)
+        {
+            this.head=curr.next
+        }
+        else
+        {
+        while(itrt<index-1)
+        {
+            
+                prev=curr
+                curr=curr.next
+        } 
+        prev.next=curr.next
+        }
+        this.size--
+        
+        
+    }
     
 }
 
@@ -58,15 +79,16 @@ var a=new LinkList()
 let i=0,act=parseInt(prompt('enter number of actions to perform'))
 while(i<act)
 {
-    chce=parseInt(prompt('Enter your choice 1.adding element 2.printing element 3.end'))
+    chce=parseInt(prompt('Enter your choice 1.adding element 2.remove element 3.search 4.end'))
 switch(chce)
 {
     case 1:let elemt=parseInt(prompt('Enter elemt to insert'))
         a.add(elemt)
         i++
-        //a.prntLst()
+        a.printL()
         break;
-    case 2:a.printL()
+    case 2:a.removeNode(parseInt(prompt('Enter index of elemt to remove')))
+    a.printL()
     i++
     break;
     case 3:i=act
