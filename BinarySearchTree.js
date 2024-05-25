@@ -69,8 +69,8 @@ if(root!=null)
     if(root.elem==elem)
     {
     console.log('match found'+root.elem)
-    console.log(root)
-    return root
+    //console.log(root)
+    //return root.elem
     }
     else if(root.elem>elem)
     {
@@ -88,29 +88,14 @@ else{
 }       
 
     }
-    upDate(elem,updElem)
+    min(root_node)
     {
-        var path=this.Search(elem,this.root)
-        console.log(path)
-        if(path)
+        if(root_node.left==null)
         {
-            if(path.elem<updElem)
-            {
-                let left_elem=path.left.elem
-                path.left.elem=updElem
-                path.elem=left_elem
-            }
-            else{
-                let rt_elem=path.right.elem
-                path.right.elem=updElem
-                path.elem=rt_elem
-            }
+            console.log(root_node.elem)
         }
-        else{
-            console.log('element not found')
-
-        }
-
+        else
+        this.min(root_node.left)
     }
 }
 
@@ -127,6 +112,7 @@ bt.add(2)
 bt.add(3)
 bt.add(4) 
 bt.inOrderTraversal(bt.root)
-//bt.Search(4,bt.root)
-bt.upDate(2,20)
+console.log(bt.Search(4,bt.root))
+bt.min(bt.root)
+//bt.upDate(2,20)
 console.log(bt)
