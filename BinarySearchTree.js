@@ -69,8 +69,8 @@ if(root!=null)
     if(root.elem==elem)
     {
     console.log('match found'+root.elem)
-    //console.log(root)
-    //return root.elem
+   console.log(root)
+    //return root
     }
     else if(root.elem>elem)
     {
@@ -88,31 +88,42 @@ else{
 }       
 
     }
-    min(root_node)
-    {
-        if(root_node.left==null)
-        {
-            console.log(root_node.elem)
-        }
-        else
+   min(root_node)
+   {
+    
+        if(root_node.left!=null)
         this.min(root_node.left)
+    else{
+        console.log(`Min--------------- ${root_node.elem}`)
     }
+   }
+   max(root_node)
+   {
+    
+        if(root_node.right!=null)
+        this.max(root_node.right)
+    else{
+        console.log(`Max-------------- ${root_node.elem}`)
+    }
+   }
 }
 
 var bt=new BinaryTree()
 let n=10,add_elem=0,arr_elem=[]
-/* for(let i=0;i<n;i++)
+ for(let i=0;i<n;i++)
 {
     add_elem= Math.ceil(Math.random(n)*100)
     bt.add(add_elem)  
     arr_elem.push(add_elem)  
-} */
-bt.add(1)
+}
+/* bt.add(1)
 bt.add(2)
 bt.add(3)
-bt.add(4) 
+bt.add(4)
+bt.add(4) */ 
 bt.inOrderTraversal(bt.root)
-console.log(bt.Search(4,bt.root))
-bt.min(bt.root)
+bt.Search(arr_elem[1],bt.root)
 //bt.upDate(2,20)
-console.log(bt)
+bt.min(bt.root)
+bt.max(bt.root)
+//console.log(bt)
