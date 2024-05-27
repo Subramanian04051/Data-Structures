@@ -8,6 +8,10 @@ class BinaryHeap
     {
         return ((i-1)/2)
     }
+    getMin()
+    {
+        return this.arr[0]
+    }
     insert(element)
     {
         this.arr.push(element)
@@ -35,3 +39,4 @@ console.log(bt.arr)
 bt.insert(1)
 bt.insert(1)
 console.log(bt.arr)
+console.log(bt.getMin())
