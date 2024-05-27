@@ -1,65 +1,37 @@
-class Node
-{
-    constructor(element)
-    {
-        this.element=element
-        this.left=null
-        this.right=null
-    }
-}
-
 class BinaryHeap
 {
     constructor()
     {
-        this.size=0
-        this.root=null
+        this.arr=[]
     }
-    add(element)
+    Parent(i)
     {
-        const node=new Node(element)
-        if(this.root==null)
-        {
-            this.root=node
-        }
-
-else
-{
-    this.insertNode(this.root,node)
-    
-}
-        
+        return ((i-1)/2)
     }
-    insertNode(root,node)
+    insert(element)
     {
-       // console.log()
-        if(root.left==null)
+        this.arr.push(element)
+        let i=this.arr.length-1
+        console.log(i)
+        while(i>0 && this.arr[this.Parent(i)]>this.arr[i])
         {
-           root.left=node 
+            let p=this.Parent(i),temp
+            console.log(p)
+            temp=this.arr[i]
+            this.arr[i]=this.arr[p]
+            this.arr[p]=temp
+            //this.arr[i],this.arr[p]=this.swap(this.arr[p],this.arr[i])
+            i=p
         }
-        else if(root.right==null)
-        {
-           root.right=node 
-        }
-        else
-        {
-            console.log('entered else')
-            console.log(root.left)
-            //if(this.root.left==null)
-            this.insertNode(root.left,node)
-           this.insertNode(root.right,node)
-          //  this.insertNode(this.root.right,node)
-        }
-        
     }
 }
 
-var mh=new BinaryHeap()
-mh.add(1)
-mh.add(2)
-mh.add(3)
-mh.add(4)
-mh.add(5)
-mh.add(10)
-//mh.Traversal(mh.root)
-console.log(mh.root)
+
+var bt=new BinaryHeap()
+bt.insert(3)
+console.log(bt.arr)
+bt.insert(2)
+console.log(bt.arr)
+bt.insert(1)
+bt.insert(1)
+console.log(bt.arr)
